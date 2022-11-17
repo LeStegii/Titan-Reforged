@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    " #",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "titanreforged:nether_crystal"
+    }
+  },
+  "result": {
+    "item": "titanreforged:nether_hoe"
+  }
+}

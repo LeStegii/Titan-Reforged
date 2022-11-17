@@ -1,0 +1,32 @@
+itemGroup.titanreforged=Titan Reforged
+item.tool_handle.name=Tool Handle
+item.titan_ingot.name=Titan Ingot
+item.titan_crystal.name=Titan Crystal
+item.titan_dust.name=Titan Dust
+item.titan_sword.name=Titan Sword
+item.titan_giant_sword.name=Titan Giant Sword
+item.titan_axe.name=Titan Axe
+item.titan_pickaxe.name=Titan Pickaxe
+item.titan_hoe.name=Titan Hoe
+item.titan_shovel.name=Titan Shovel
+tile.titan_block.name=Titan Block
+
+item.citrine_crystal.name=Citrine Crystal
+item.citrine_dust.name=Citrine Dust
+item.citrine_sword.name=Citrine Sword
+item.citrine_giant_sword.name=Citrine Giant Sword
+item.citrine_axe.name=Citrine Axe
+item.citrine_pickaxe.name=Citrine Pickaxe
+item.citrine_hoe.name=Citrine Hoe
+item.citrine_shovel.name=Citrine Shovel
+tile.citrine_block.name=Citrine Block
+
+item.nether_crystal.name=Nether Crystal
+item.nether_dust.name=Nether Crystal Dust
+item.nether_sword.name=Nether Crystal Sword
+item.nether_giant_sword.name=Nether Crystal Giant Sword
+item.nether_axe.name=Nether Crystal Axe
+item.nether_pickaxe.name=Nether Crystal Pickaxe
+item.nether_hoe.name=Nether Crystal Hoe
+item.nether_shovel.name=Nether Crystal Shovel
+tile.nether_crystal_block.name=Nether Crystal Block
