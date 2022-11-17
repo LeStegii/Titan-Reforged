@@ -1,21 +1,19 @@
 package net.kettlemc.titan.content.tileentity;
 
-import net.minecraft.block.BlockFurnace;
+import net.kettlemc.titan.content.block.BlockIronFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.datafix.DataFixer;
-import net.minecraft.util.datafix.FixTypes;
-import net.minecraft.util.datafix.walkers.ItemStackDataLists;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
@@ -31,7 +29,6 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
 
     private static final int DEFAULT_BURNING_TIME = 200;
     private static final int MAX_STACK_SIZE = 64;
-
     private static final int[] SLOTS_TOP = new int[] {0};
     private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
     private static final int[] SLOTS_SIDES = new int[] {1};
@@ -68,7 +65,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
 
     @Override
     public boolean isEmpty() {
-        Iterator iterator = this.furnaceItemStacks.iterator();
+        Iterator<ItemStack> iterator = this.furnaceItemStacks.iterator();
 
         ItemStack itemstack;
         do {
@@ -76,7 +73,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
                 return true;
             }
 
-            itemstack = (ItemStack) iterator.next();
+            itemstack = iterator.next();
         } while (itemstack.isEmpty());
 
         return false;
@@ -128,10 +125,6 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
         this.furnaceCustomName = customInventoryName;
     }
 
-    public static void registerFixesFurnace(DataFixer dataFixer) {
-        dataFixer.registerWalker(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileEntityFurnace.class, new String[] {"Items"}));
-    }
-
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
@@ -144,7 +137,6 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
         if (nbtTagCompound.hasKey("CustomName", 8)) {
             this.furnaceCustomName = nbtTagCompound.getString("CustomName");
         }
-
     }
 
     @Override
@@ -154,6 +146,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
         nbtTagCompound.setInteger("CookTime", (short) this.cookTime);
         nbtTagCompound.setInteger("CookTimeTotal", (short) this.totalCookTime);
         ItemStackHelper.saveAllItems(nbtTagCompound, this.furnaceItemStacks);
+
         if (this.hasCustomName()) {
             nbtTagCompound.setString("CustomName", this.furnaceCustomName);
         }
@@ -179,6 +172,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
     public void update() {
         boolean flag = this.isBurning();
         boolean flag1 = false;
+
         if (this.isBurning()) {
             --this.furnaceBurnTime;
         }
@@ -219,7 +213,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
 
             if (flag != this.isBurning()) {
                 flag1 = true;
-                BlockFurnace.setState(this.isBurning(), this.world, this.pos);
+                BlockIronFurnace.setState(this.isBurning(), this.world, this.pos);
             }
         }
 
@@ -279,8 +273,8 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
         return TileEntityFurnace.getItemBurnTime(itemStack);
     }
 
-    public static boolean isItemFuel(ItemStack itemStack) {
-        return isItemFuel(itemStack);
+    public static boolean isItemFuel(ItemStack stack) {
+        return getItemBurnTime(stack) > 0;
     }
 
     @Override
