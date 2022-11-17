@@ -13,7 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -47,19 +46,17 @@ public class BlockIronFurnace extends BlockFurnace {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return new ItemBlock(TitanBlocks.IRON_FURNACE);
+        return Item.getItemFromBlock(TitanBlocks.IRON_FURNACE);
     }
 
     @Override
     public boolean onBlockActivated(World world, BlockPos blockPos, IBlockState blockState, EntityPlayer player, EnumHand hand, EnumFacing facing, float x, float y, float z) {
-        if (world.isRemote) {
-            return true;
+        if (!world.isRemote) {
+            TileEntity tileEntity = world.getTileEntity(blockPos);
+            if (tileEntity instanceof TitanTileEntityFurnace) {
+                player.displayGUIChest((IInventory) tileEntity);
+            }
         }
-        TileEntity tileEntity = world.getTileEntity(blockPos);
-        if (tileEntity instanceof TitanTileEntityFurnace) {
-            player.displayGUIChest((IInventory) tileEntity);
-        }
-
         return true;
     }
 
@@ -67,6 +64,7 @@ public class BlockIronFurnace extends BlockFurnace {
         IBlockState blockState = world.getBlockState(blockPos);
         TileEntity tileEntity = world.getTileEntity(blockPos);
         keepInventory = true;
+
         if (active) {
             world.setBlockState(blockPos, TitanBlocks.IRON_FURNACE_LIT.getDefaultState().withProperty(FACING, blockState.getValue(FACING)), 3);
             world.setBlockState(blockPos, TitanBlocks.IRON_FURNACE_LIT.getDefaultState().withProperty(FACING, blockState.getValue(FACING)), 3);
@@ -76,6 +74,7 @@ public class BlockIronFurnace extends BlockFurnace {
         }
 
         keepInventory = false;
+
         if (tileEntity != null) {
             tileEntity.validate();
             world.setTileEntity(blockPos, tileEntity);
@@ -88,22 +87,16 @@ public class BlockIronFurnace extends BlockFurnace {
     }
 
     @Override
-    public TileEntity createTileEntity(World world, IBlockState state) {
-        return new TitanTileEntityFurnace(TitanBlocks.IRON_FURNACE.getTranslationKey(), 1, 0.75);
-    }
-
-    @Override
     public void onBlockPlacedBy(World world, BlockPos blockPos, IBlockState blockState, EntityLivingBase entityPlacer, ItemStack itemStack) {
-        if (world.isRemote)
-            return;
         world.setBlockState(blockPos, blockState.withProperty(FACING, entityPlacer.getHorizontalFacing().getOpposite()), 2);
+
         if (itemStack.hasDisplayName()) {
             TileEntity tileEntity = world.getTileEntity(blockPos);
+
             if (tileEntity instanceof TitanTileEntityFurnace) {
                 ((TitanTileEntityFurnace) tileEntity).setCustomInventoryName(itemStack.getDisplayName());
             }
         }
-
     }
 
     @Override
@@ -116,8 +109,6 @@ public class BlockIronFurnace extends BlockFurnace {
             }
         }
 
-        //super.breakBlock(world, blockPos, blockState);
-        world.removeTileEntity(blockPos);
+        super.breakBlock(world, blockPos, blockState);
     }
-
 }
