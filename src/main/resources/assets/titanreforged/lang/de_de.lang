@@ -1,0 +1,32 @@
+itemGroup.titanreforged=Titan Reforged
+item.tool_handle.name=Werkzeuggriff
+
+item.titan_ingot.name=Titan Barren
+item.titan_crystal.name=Titan Kristall
+item.titan_dust.name=Titan Staub
+item.titan_sword.name=Titan Schwert
+item.titan_giant_sword.name=Gigantisches Titan Schwert
+item.titan_pickaxe.name=Titan Spitzhacke
+item.titan_hoe.name=Titan Hacke
+item.titan_shovel.name=Titan Schaufel
+tile.titan_block.name=Titan Block
+
+item.citrine_crystal.name=Citrine Kristall
+item.citrine_dust.name=Citrine Staub
+item.citrine_sword.name=Citrine Schwert
+item.citrine_giant_sword.name=Gigantisches Citrine Schwert
+item.citrine_axe.name=Citrine Axt
+item.citrine_pickaxe.name=Citrine Spitzhacke
+item.citrine_hoe.name=Citrine Hacke
+item.citrine_shovel.name=Citrine Schaufel
+tile.citrine_block.name=Citrine Block
+
+item.nether_crystal.name=Nether Kristall
+item.nether_dust.name=Nether Kristall Staub
+item.nether_sword.name=Nether Kristall Schwert
+item.nether_giant_sword.name=Gigantisches Nether Kristall Schwert
+item.nether_axe.name=Nether Kristall Axt
+item.nether_pickaxe.name=Nether Kristall Spitzhacke
+item.nether_hoe.name=Nether Kristall Hacke
+item.nether_shovel.name=Nether Kristall Schaufel
+tile.nether_crystal_block.name=Nether Kristall Block
