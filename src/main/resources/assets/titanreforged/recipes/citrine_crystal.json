@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "titanreforged:citrine_block"
+    }
+  ],
+  "result": {
+    "item": "titanreforged:citrine_crystal",
+    "data": 0,
+    "count": 9
+  }
+}

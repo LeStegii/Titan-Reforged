@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "titanreforged:nether_crystal_block"
+    }
+  ],
+  "result": {
+    "item": "titanreforged:nether_crystal",
+    "data": 0,
+    "count": 9
+  }
+}

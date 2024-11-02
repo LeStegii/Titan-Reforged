@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XYX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "titanreforged:titan_ingot"
+    },
+    "Y": {
+      "item": "titanreforged:titan_crystal"
+    }
+  },
+  "result": {
+    "item": "titanreforged:titan_pickaxe"
+  }
+}

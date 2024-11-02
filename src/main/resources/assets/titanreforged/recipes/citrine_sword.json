@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "titanreforged:tool_handle"
+    },
+    "X": {
+      "item": "titanreforged:citrine_crystal"
+    }
+  },
+  "result": {
+    "item": "titanreforged:citrine_sword"
+  }
+}

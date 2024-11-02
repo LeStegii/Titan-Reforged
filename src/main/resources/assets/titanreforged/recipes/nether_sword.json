@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "titanreforged:tool_handle"
+    },
+    "X": {
+      "item": "titanreforged:nether_crystal"
+    }
+  },
+  "result": {
+    "item": "titanreforged:nether_sword"
+  }
+}

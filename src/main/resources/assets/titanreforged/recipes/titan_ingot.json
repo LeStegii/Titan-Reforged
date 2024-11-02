@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "titanreforged:titan_block"
+    }
+  ],
+  "result": {
+    "item": "titanreforged:titan_ingot",
+    "data": 0,
+    "count": 9
+  }
+}

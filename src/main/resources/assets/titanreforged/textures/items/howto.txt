@@ -1,0 +1,2 @@
+citrine: jade 70 left
+titan: chryso 50 right

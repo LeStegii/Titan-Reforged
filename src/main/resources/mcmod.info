@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "titanreforged",
+  "name": "Titan Reforged",
+  "description": "A mod for Titan like pvp projects.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["CleanroomMC"],
-  "credits": "Authors of this project",
+  "authorList": ["LeStegii"],
+  "credits": "CleanRoomMC, Titan Project",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

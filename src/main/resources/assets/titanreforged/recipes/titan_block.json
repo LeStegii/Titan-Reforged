@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "titanreforged:titan_ingot"
+    }
+  },
+  "result": {
+    "item": "titanreforged:titan_block"
+  }
+}
