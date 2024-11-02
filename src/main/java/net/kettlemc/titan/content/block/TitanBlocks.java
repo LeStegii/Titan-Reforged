@@ -26,7 +26,8 @@ public class TitanBlocks {
             TITAN_BLOCK,
             CITRINE_BLOCK,
             NETHER_CRYSTAL_BLOCK,
-            IRON_FURNACE
+            IRON_FURNACE,
+            IRON_FURNACE_LIT
     };
 
     @SubscribeEvent

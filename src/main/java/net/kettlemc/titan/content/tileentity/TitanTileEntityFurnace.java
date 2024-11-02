@@ -1,6 +1,7 @@
 package net.kettlemc.titan.content.tileentity;
 
 import net.kettlemc.titan.content.block.BlockIronFurnace;
+import net.kettlemc.titan.content.container.ContainerTitanFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -49,7 +50,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
     IItemHandler handlerBottom;
     IItemHandler handlerSide;
 
-    public TitanTileEntityFurnace(String registry, int outputModifier, double burningTimeModifier) {
+    protected TitanTileEntityFurnace(String registry, int outputModifier, double burningTimeModifier) {
         this.furnaceItemStacks = NonNullList.withSize(3, ItemStack.EMPTY);
         this.handlerTop = new SidedInvWrapper(this, EnumFacing.UP);
         this.handlerBottom = new SidedInvWrapper(this, EnumFacing.DOWN);
@@ -113,7 +114,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
 
     @Override
     public String getName() {
-        return this.hasCustomName() ? this.furnaceCustomName : "container.furnace";
+        return this.hasCustomName() ? this.furnaceCustomName : "container.iron_furnace";
     }
 
     @Override
@@ -133,6 +134,8 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
         this.furnaceBurnTime = nbtTagCompound.getInteger("BurnTime");
         this.cookTime = nbtTagCompound.getInteger("CookTime");
         this.totalCookTime = nbtTagCompound.getInteger("CookTimeTotal");
+        this.burningTimeModifier = nbtTagCompound.getDouble("BurningTimeModifier");
+        this.outputModifier = nbtTagCompound.getInteger("OutputModifier");
         this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks.get(1));
         if (nbtTagCompound.hasKey("CustomName", 8)) {
             this.furnaceCustomName = nbtTagCompound.getString("CustomName");
@@ -145,6 +148,8 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
         nbtTagCompound.setInteger("BurnTime", (short) this.furnaceBurnTime);
         nbtTagCompound.setInteger("CookTime", (short) this.cookTime);
         nbtTagCompound.setInteger("CookTimeTotal", (short) this.totalCookTime);
+        nbtTagCompound.setDouble("BurningTimeModifier", this.burningTimeModifier);
+        nbtTagCompound.setInteger("OutputModifier", this.outputModifier);
         ItemStackHelper.saveAllItems(nbtTagCompound, this.furnaceItemStacks);
 
         if (this.hasCustomName()) {
@@ -224,7 +229,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
     }
 
     public int getCookTime(ItemStack itemStack) {
-        return (int) (DEFAULT_BURNING_TIME / burningTimeModifier);
+        return (int) (DEFAULT_BURNING_TIME * burningTimeModifier);
     }
 
     private boolean canSmelt() {
@@ -341,7 +346,7 @@ public class TitanTileEntityFurnace extends TileEntityLockable implements ITicka
 
     @Override
     public Container createContainer(InventoryPlayer p_createContainer_1_, EntityPlayer p_createContainer_2_) {
-        return new ContainerFurnace(p_createContainer_1_, this);
+        return new ContainerTitanFurnace(p_createContainer_1_, this);
     }
 
     @Override

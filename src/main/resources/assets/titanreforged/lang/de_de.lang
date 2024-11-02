@@ -30,3 +30,6 @@ item.nether_pickaxe.name=Nether Kristall Spitzhacke
 item.nether_hoe.name=Nether Kristall Hacke
 item.nether_shovel.name=Nether Kristall Schaufel
 tile.nether_crystal_block.name=Nether Kristall Block
+
+tile.iron_furnace.name=Eisenofen
+container.iron_furnace=Eisenofen

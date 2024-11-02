@@ -1,10 +1,10 @@
 package net.kettlemc.titan;
 
 import net.kettlemc.titan.content.block.TitanBlocks;
-import net.kettlemc.titan.content.tileentity.IronFurnaceRecipes;
-import net.kettlemc.titan.content.tileentity.TitanTileEntityFurnace;
-import net.kettlemc.titan.proxy.Proxy;
 import net.kettlemc.titan.content.item.TitanItems;
+import net.kettlemc.titan.content.tileentity.IronFurnaceRecipes;
+import net.kettlemc.titan.content.tileentity.TitanTileEntityIronFurnace;
+import net.kettlemc.titan.proxy.Proxy;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -44,7 +44,7 @@ public class TitanMod {
     public void init(FMLInitializationEvent event) {
         proxy.init();
         IronFurnaceRecipes.init();
-        GameRegistry.registerTileEntity(TitanTileEntityFurnace.class, new ResourceLocation(MOD_ID, "titan_furnace"));
+        GameRegistry.registerTileEntity(TitanTileEntityIronFurnace.class, new ResourceLocation(MOD_ID, "iron_furnace"));
     }
 
     @Mod.EventHandler

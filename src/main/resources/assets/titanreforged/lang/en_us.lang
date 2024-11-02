@@ -30,3 +30,6 @@ item.nether_pickaxe.name=Nether Crystal Pickaxe
 item.nether_hoe.name=Nether Crystal Hoe
 item.nether_shovel.name=Nether Crystal Shovel
 tile.nether_crystal_block.name=Nether Crystal Block
+
+tile.iron_furnace.name=Iron Furnace
+container.iron_furnace=Iron Furnace

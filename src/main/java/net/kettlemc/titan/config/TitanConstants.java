@@ -10,4 +10,5 @@ public class TitanConstants {
     // Proxy
     public static final String CLIENT_PROXY = "net.kettlemc.titan.proxy.ClientProxy";
     public static final String COMMON_PROXY = "net.kettlemc.titan.proxy.CommonProxy";
+
 }
